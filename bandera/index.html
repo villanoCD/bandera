@@ -3,45 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bandera Interactiva de República Dominicana</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Bandera Dominicana</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <div class="sky" id="sky">
-        <div class="sun" id="sun"></div>
-        <div class="moon" id="moon"></div>
-        <div class="stars" id="stars"></div>
-        <div class="cloud"></div>
-        <div class="cloud"></div>
+<body class="day">
+    <!-- Sol y Luna -->
+    <div class="sun"></div>
+    <div class="moon"></div>
+
+    <!-- Nubes y pájaros para el día -->
+    <div class="day-elements">
+        <!-- The clouds and birds will be dynamically generated with JS -->
     </div>
     
-    <div class="ground"></div>
-    
-    <div class="flag-container">
-        <div class="flag-pole">
-            <div class="pole"></div>
-            <div class="ball"></div>
+    <!-- Estrellas para la noche -->
+    <div class="night-elements">
+        <!-- The stars will be dynamically generated with JS -->
+    </div>
+
+    <div class="min-h-screen flex flex-col justify-center items-center p-4">
+        <div class="flex-grow flex justify-center items-end w-full">
+            <div class="flag-pole-container shadow-lg">
+                <div id="flag" class="flag">
+                    <div class="flag-container grid grid-cols-2 grid-rows-2">
+                        <div class="red-section rounded-tl-lg"></div>
+                        <div class="blue-section rounded-tr-lg"></div>
+                        <div class="blue-section rounded-bl-lg"></div>
+                        <div class="red-section rounded-br-lg"></div>
+                        <div class="white-cross"></div>
+                        <div class="coat-of-arms"></div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="flag" id="flag">
-            <div class="blue-stripe top"></div>
-            <div class="red-stripe top-right"></div>
-            <div class="white-cross horizontal"></div>
-            <div class="white-cross vertical"></div>
-            <div class="blue-stripe bottom-left"></div>
-            <div class="red-stripe bottom"></div>
-            <div class="coat-of-arms"></div>
+
+        <div class="mt-8 flex space-x-4">
+            <button id="up-btn" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full shadow-lg transition transform hover:scale-105">
+                Subir Bandera
+            </button>
+            <button id="down-btn" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full shadow-lg transition transform hover:scale-105">
+                Bajar Bandera
+            </button>
+            <button id="toggle-btn" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-full shadow-lg transition transform hover:scale-105">
+                Cambiar Día/Noche
+            </button>
+            <button id="generate-btn" class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full shadow-lg transition transform hover:scale-105">
+                ✨ Generar Mensaje Histórico
+            </button>
+        </div>
+
+        <div id="message-container" class="mt-8 w-full max-w-lg">
+            <div id="message-box" class="message-box hidden">
+                <p id="message-text" class="message-text"></p>
+                <div id="message-controls" class="message-controls hidden">
+                    <button id="play-btn" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transition transform hover:scale-105">
+                        <span class="text-xl">▶️</span>
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="clock-container">
-        <div class="clock-display" id="clock"></div>
-    </div>
-
-    <div class="button-container">
-        <button id="dayButton">☀️ Día</button>
-        <button id="nightButton">🌙 Noche</button>
-    </div>
-
-    <script src="script.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>

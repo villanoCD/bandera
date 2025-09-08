@@ -1,302 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 body {
-    margin: 0;
+    font-family: 'Inter', sans-serif;
+    transition: background-color 1s ease-in-out;
     overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    font-family: sans-serif;
-    background-color: #87CEEB; /* Color de cielo por defecto */
-    transition: background-color 2s ease;
-}
-
-.sky {
-    width: 100%;
-    height: 100vh;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-}
-
-.sky.night {
-    background: #0d1a29;
-}
-
-.ground {
-    width: 100%;
-    height: 30vh;
-    background: linear-gradient(to top, #4CAF50, #8BC34A);
-    position: absolute;
-    bottom: 0;
-    z-index: -2;
-}
-
-.flag-container {
-    position: absolute;
-    bottom: 25vh;
-    left: 10%;
-    transform: translateX(-50%);
-    display: flex;
-    align-items: flex-end;
-}
-
-.flag-pole {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     position: relative;
+}
+
+.day {
+    background-color: #87CEEB; /* Azul cielo */
+}
+.night {
+    background-color: #1a202c; /* Azul oscuro */
+}
+.flag-pole-container {
+    position: relative;
+    width: 15px;
+    height: 90vh;
+    background-color: #8B4513; /* Marrón */
+    margin: 0 auto;
+    border-radius: 8px;
     z-index: 10;
 }
-
-.pole {
-    width: 8px;
-    height: 70vh;
-    background: #6D6D6D;
-    border-radius: 5px;
-    box-shadow: inset 0 0 5px rgba(0,0,0,0.5);
-}
-
-.ball {
-    width: 25px;
-    height: 25px;
-    background: #FFD700;
-    border-radius: 50%;
-    position: absolute;
-    top: -12.5px;
-}
-
 .flag {
-    width: 400px;
-    height: 250px;
-    background: transparent;
     position: absolute;
-    left: 8px;
-    bottom: 40vh;
+    top: 100%;
+    left: 15px;
+    width: 250px;
+    height: 150px;
     transform-origin: 0% 50%;
-    animation: wind 5s ease-in-out infinite;
-    display: grid;
-    grid-template-areas:
-        "blue-top red-top"
-        "white-vertical white-vertical"
-        "blue-bottom red-bottom";
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    
+    transition: top 1s ease-in-out;
+    animation: wave 3s ease-in-out infinite;
 }
-
-.flag div {
-    position: absolute;
+.flag-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
 }
-
-.blue-stripe.top {
+.blue-section {
     width: 50%;
     height: 50%;
-    background-color: #002D62; /* Azul oscuro */
-    top: 0;
-    left: 0;
+    background-color: #002279;
 }
-
-.red-stripe.top-right {
+.red-section {
     width: 50%;
     height: 50%;
-    background-color: #E21B17; /* Rojo */
-    top: 0;
-    right: 0;
+    background-color: #E21835;
 }
-
-.blue-stripe.bottom-left {
-    width: 50%;
-    height: 50%;
-    background-color: #002D62; /* Azul oscuro */
-    bottom: 0;
-    left: 0;
-}
-
-.red-stripe.bottom {
-    width: 50%;
-    height: 50%;
-    background-color: #E21B17; /* Rojo */
-    bottom: 0;
-    right: 0;
-}
-
 .white-cross {
-    background-color: #FFFFFF; /* Blanco */
-    z-index: 1;
+    position: absolute;
+    width: 25%;
+    height: 100%;
+    background-color: white;
+    top: 0;
+    left: 37.5%;
 }
-
-.white-cross.horizontal {
+.white-cross::before {
+    content: '';
+    position: absolute;
     width: 100%;
     height: 25%;
+    background-color: white;
     top: 37.5%;
     left: 0;
 }
-
-.white-cross.vertical {
-    width: 25%;
-    height: 100%;
-    left: 37.5%;
-    top: 0;
-}
-
 .coat-of-arms {
-    width: 100px;
-    height: 100px;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 350"><defs><style>.cls-1{fill:none;}.cls-2{fill:%23414141;}.cls-3{fill:%23fff;}.cls-4{fill:%23e63946;}.cls-5{fill:%231d3557;}.cls-6{fill:%23f4a261;}.cls-7{fill:%232a9d8f;}.cls-8{fill:%23e76f51;}.cls-9{font-size:16px;font-family:Arial, sans-serif;}.cls-10{font-weight:700;}.cls-11{font-weight:400;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-2" d="M175,348.5a173.5,173.5,0,1,1,173.5-173.5A173.69,173.69,0,0,1,175,348.5ZM175,4.5a170,170,0,1,0,170,170A170.19,170.19,0,0,0,175,4.5Z"/><path class="cls-3" d="M175,345a170,170,0,1,1,170-170A170.19,170.19,0,0,1,175,345Z"/><rect class="cls-4" x="48.5" y="117.5" width="253" height="115"/><rect class="cls-5" x="48.5" y="117.5" width="253" height="57.5"/><rect class="cls-4" x="48.5" y="175" width="253" height="57.5"/><rect class="cls-3" x="146" y="117.5" width="58.5" height="115"/><rect class="cls-3" x="48.5" y="175" width="253" height="57.5"/><polygon class="cls-3" points="146 117.5 175 146.5 203.5 117.5 146 117.5"/><path class="cls-3" d="M175,146.5l28.5-29,29,29-57.5,57.5-29-28.5L175,146.5Z"/><circle class="cls-6" cx="175" cy="175" r="50"/><path class="cls-7" d="M175,225a50,50,0,1,1,50-50A50,50,0,0,1,175,225Z"/><path class="cls-8" d="M175,215a40,40,0,1,1,40-40A40,40,0,0,1,175,215Z"/><circle class="cls-3" cx="175" cy="175" r="30"/><rect class="cls-3" x="160" y="160" width="30" height="30"/><path class="cls-3" d="M175,160a15,15,0,1,1-15,15A15.02,15.02,0,0,1,175,160Z"/><text class="cls-9" transform="translate(142.5 177.5)">DIOS PATRIA LIBERTAD</text></g></g></svg>');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 2;
-}
-
-@keyframes wind {
-    0% { transform: scaleY(1) perspective(500px) rotateY(0deg); }
-    50% { transform: scaleY(1.05) perspective(500px) rotateY(15deg); }
-    100% { transform: scaleY(1) perspective(500px) rotateY(0deg); }
+    width: 40px;
+    height: 40px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50,5 L70,25 L95,25 L75,50 L95,75 L70,75 L50,95 L30,75 L5,75 L25,50 L5,25 L30,25 Z" fill="white"/></svg>');
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .sun {
-    width: 100px;
-    height: 100px;
-    background: #FFD700;
-    border-radius: 50%;
     position: absolute;
     top: 10vh;
-    left: 10%;
-    box-shadow: 0 0 50px #FFD700;
-    transition: all 2s ease;
+    left: 10vw;
+    width: 100px;
+    height: 100px;
+    background-color: #FFD700;
+    border-radius: 50%;
+    box-shadow: 0 0 50px 20px #FFD700;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+}
+.night .sun {
+    opacity: 0;
 }
 
 .moon {
-    width: 80px;
-    height: 80px;
-    background: #F0EAD6;
-    border-radius: 50%;
     position: absolute;
     top: 10vh;
-    left: 90%;
-    transform: translateX(-50%) scale(0);
-    box-shadow: 0 0 30px #F0EAD6;
-    transition: all 2s ease;
-}
-
-.moon::before {
-    content: '';
-    position: absolute;
+    right: 10vw;
     width: 80px;
     height: 80px;
-    background: #0d1a29;
+    background-color: #DDD;
     border-radius: 50%;
-    top: 0;
-    left: 15px;
-}
-
-.stars {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: transparent;
     opacity: 0;
-    transition: opacity 2s ease;
+    transition: opacity 1s ease-in-out;
+    box-shadow: 0 0 20px 5px #DDD;
 }
-
-.stars.show {
+.day .moon {
+    opacity: 0;
+}
+.night .moon {
     opacity: 1;
 }
 
-.stars::after {
-    content: '';
+.star {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, #fff 1px, transparent 1px);
-    background-size: 50px 50px;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+.night .star {
+    opacity: 1;
+}
+
+.bird {
+    position: absolute;
+    width: 20px;
+    height: 15px;
+    background-color: transparent;
+    border-top: 2px solid #000;
+    border-radius: 50%;
+    transition: opacity 1s ease-in-out;
+    animation: fly 10s linear infinite;
+}
+.night .bird {
+    opacity: 0;
+}
+.day .bird {
+    opacity: 1;
 }
 
 .cloud {
     position: absolute;
-    background: #f0f0f0;
+    background-color: white;
     border-radius: 50%;
-    animation: drift 20s infinite linear;
+    transition: opacity 1s ease-in-out;
+    animation: drift 20s linear infinite;
+}
+.night .cloud {
+    opacity: 0;
+}
+.day .cloud {
+    opacity: 1;
 }
 
-.cloud:nth-child(1) {
-    width: 150px;
-    height: 50px;
-    top: 20%;
-    left: 0;
-}
-
-.cloud:nth-child(1)::before {
-    content: '';
-    position: absolute;
-    width: 100px;
-    height: 40px;
-    background: #f0f0f0;
-    border-radius: 50%;
-    top: -10px;
-    left: 20px;
-}
-
-.cloud:nth-child(2) {
-    width: 200px;
-    height: 60px;
-    top: 30%;
-    left: 70%;
-}
-
-.cloud:nth-child(2)::before {
-    content: '';
-    position: absolute;
-    width: 120px;
-    height: 50px;
-    background: #f0f0f0;
-    border-radius: 50%;
-    top: -15px;
-    left: -20px;
+@keyframes wave {
+    0% { transform: scale(1, 1) translateX(0) }
+    50% { transform: scale(1.05, 0.95) translateX(10px) }
+    100% { transform: scale(1, 1) translateX(0) }
 }
 
 @keyframes drift {
-    0% { transform: translateX(-100vw); }
-    100% { transform: translateX(100vw); }
+    from {
+        transform: translateX(100vw);
+    }
+    to {
+        transform: translateX(-100vw);
+    }
 }
 
-.clock-container {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.7);
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 10px;
-    font-size: 1.5em;
-    z-index: 100;
+@keyframes fly {
+    0% { transform: translate(-10vw, 0) rotate(0); }
+    50% { transform: translate(100vw, 50px) rotate(15deg); }
+    100% { transform: translate(150vw, 0) rotate(0); }
 }
 
-.button-container {
-    position: absolute;
-    bottom: 100px;
-    left: 50%;
-    transform: translateX(-50%);
+.message-box {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 2px solid #ccc;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    min-height: 120px;
     display: flex;
-    gap: 20px;
-    z-index: 101;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
-
-.button-container button {
-    padding: 10px 20px;
-    font-size: 1em;
-    cursor: pointer;
-    border: none;
-    border-radius: 5px;
-    background-color: #f0f0f0;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+.message-text {
+    color: #333;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+.message-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+.loading-spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
